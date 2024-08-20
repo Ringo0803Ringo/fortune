@@ -1,1 +1,6 @@
-<a href=""></a>
+@extends('layouts.app')
+
+@section('content')
+
+
+@endsection
