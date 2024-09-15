@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FortuneController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
@@ -14,15 +15,9 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', function () {
-    return view('top');
-});
+Route::get('/', [FortuneController::class, 'getFortune'])->name('getFortune');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/user/{user}', [UserController::class, 'user'])->name('user');
 });
 
