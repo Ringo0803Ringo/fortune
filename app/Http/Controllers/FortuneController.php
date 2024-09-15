@@ -19,7 +19,7 @@ class FortuneController extends Controller
 
         $result = $fortunes[array_rand($fortunes)];
 
-        return view('top', compact('fortunes'));
+        return view('top', compact('result'));
 
     }
 }
